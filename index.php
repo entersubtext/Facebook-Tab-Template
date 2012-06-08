@@ -5,12 +5,12 @@ $app_secret = 'YOUR_APP_SECRET';
 $app_id = 'YOUR_APP_ID';
 
 $sr = parse_signed_request($_REQUEST['signed_request'], $app_secret);
-echo '<!--';
-var_dump($sr);
-echo '-->';
+// echo '<!--';
+// var_dump($sr);
+// echo '-->';
 $page_data = (array) json_decode(file_get_contents('http://graph.facebook.com/'.$sr['page']['id']));
 $page_name = $page_data['name'];
-$tab_url = $page_data['link'].'?sk=app_'.$app_id;
+$tab_url = $page_data['link'].'/app_'.$app_id;
 ?>
 
 <!DOCTYPE html>
